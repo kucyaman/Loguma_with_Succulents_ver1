@@ -21,7 +21,6 @@ export default function Home() {
             登録済みの方はこちら
           </button>
         </div>
-        {/* ここにトップページのコンテンツを追加 */}
       </div>
     </>
   );
