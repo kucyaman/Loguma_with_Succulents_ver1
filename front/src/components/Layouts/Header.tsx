@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="py-4">
       <div className="text-center mb-8 px-8">
-          <h1 className="text-4xl font-bold text-white mb-3">Loguma with succulent</h1>
+          <h1 className="text-2xl font-bold text-white mb-3">Loguma <span className="text-lg">with</span> succulent</h1>
       </div>
 
       <nav>
