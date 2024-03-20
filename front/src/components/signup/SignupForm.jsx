@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import useSignup from '../../hooks/useSignup';
+import { useRouter } from "next/navigation";
+
 
 const SignupForm = ({ onClose }) => {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,6 +15,7 @@ const SignupForm = ({ onClose }) => {
     try {
       const data = await signup({ name, email, password });
       console.log('登録成功:', data);
+      router.push('home');
       onClose();
     } catch (err) {
       console.error('登録失敗:', err);
