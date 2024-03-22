@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import useSignout from '../../hooks/useSignout';
+
 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const signout = useSignout(); 
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleSignout = (e) => {
+    e.preventDefault(); // デフォルトのリンク動作を防止
+    signout();
+  };
+
 
   return (
     <header className="container py-4">
@@ -21,7 +30,7 @@ export default function Header() {
         {isMenuOpen && (
           <div className="absolute right-0 mt-5 py-2 w-48 bg-white rounded-lg shadow-xl">
             <Link href="/profile" className="block px-4 py-2 hover:bg-gray-200">プロフィール</Link>
-            <Link href="/logout" className="block px-4 py-2 hover:bg-gray-200">ログアウト</Link>
+            <button onClick={handleSignout} className="block px-4 py-2 hover:bg-gray-200 text-left w-full">ログアウト</button>
           </div>
         )}
       </div>
