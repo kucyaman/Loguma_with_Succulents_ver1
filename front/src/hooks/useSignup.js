@@ -1,31 +1,29 @@
-// src/hooks/useSignup.js
 import { useState } from 'react';
+import axios from "axios";
+import useAuth from './useAuth';
+
 
 const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { setToken } = useAuth();
 
   const signup = async ({ name, email, password }) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:3001/api/v1/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, password }),
+      const response = await axios.post('http://localhost:3001/api/v1/auth', {
+        name,
+        email,
+        password,
       });
-      
-      if (!response.ok) {
-        throw new Error('サインアップに失敗しました。');
-      }
 
-      const data = await response.json();
+      setToken(response.headers);
+
       setIsLoading(false);
-      return data;
+      return response.data;
     } catch (error) {
-      setError(error.message);
+      setError(error.response?.data?.message || 'サインアップに失敗しました。');
       setIsLoading(false);
       throw error;
     }
