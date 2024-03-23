@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import useSignup from '../../hooks/useSignup';
+import useSignup from '../../hooks/auth/useSignup';
 import { useRouter } from "next/navigation";
 
 
-const SignupForm = ({ onClose }) => {
+export default function SignupForm({ onClose }) {
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -67,4 +67,3 @@ const SignupForm = ({ onClose }) => {
   );
 };
 
-export default SignupForm;
