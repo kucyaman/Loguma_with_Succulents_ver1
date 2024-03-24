@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-const useAuth = () => {
+export default function useAuth() {
   const setToken = (tokenInfo) => {
     Cookies.set('access-token', tokenInfo['access-token'], { expires: 7 });
     Cookies.set('client', tokenInfo['client'], { expires: 7 });
@@ -10,4 +10,3 @@ const useAuth = () => {
   return { setToken };
 };
 
-export default useAuth;

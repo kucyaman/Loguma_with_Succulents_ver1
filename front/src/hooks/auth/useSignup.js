@@ -3,7 +3,7 @@ import axios from "axios";
 import useAuth from './useAuth';
 
 
-const useSignup = () => {
+export default function useSignup() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { setToken } = useAuth();
@@ -32,4 +32,3 @@ const useSignup = () => {
   return { signup, isLoading, error };
 };
 
-export default useSignup;
