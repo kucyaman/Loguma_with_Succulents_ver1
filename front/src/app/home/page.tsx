@@ -1,6 +1,6 @@
 "use client";
 import Header from '@/components/Layouts/Header';
-import CreateButton from '@/components/UI/CreateButton';
+import CreateButton from '@/components/UI/button/CreateButton';
 
 export default function Home() {
   return (
