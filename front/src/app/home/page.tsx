@@ -1,6 +1,7 @@
 "use client";
 import Header from '@/components/Layouts/Header';
-import CreateButton from '@/components/UI/button/CreateButton';
+import CreateButton from '@/app/home/components/button/CreateButton';
+import Link from 'next/link'; 
 
 export default function Home() {
   return (
@@ -8,10 +9,11 @@ export default function Home() {
       <Header />
       {/* ここにindexページのその他のコンテンツを追加 */}
       <p>ここはログイン後のメインページです。</p>
-      <div className="absolute right-0" >
-        <CreateButton />
-      </div>
-      
+      <Link href="/log/new" passHref>
+        <div className="absolute right-0">
+          <CreateButton />
+        </div>
+      </Link>
     </div>
   );
 }
