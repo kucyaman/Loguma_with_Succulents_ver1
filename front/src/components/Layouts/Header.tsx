@@ -23,7 +23,7 @@ export default function Header() {
           <h1 className="text-2xl font-bold mb-3">Loguma <span className="text-lg">with</span> succulent</h1>
       </div>
 
-      <div className="relative">
+      <div className="relative z-50">
         <button onClick={toggleMenu} className="absolute right-0 text-2xl">
           {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
         </button>
