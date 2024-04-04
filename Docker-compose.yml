@@ -9,6 +9,7 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5435:5432"
+
   api:
     build:
       context: ./api/
@@ -19,6 +20,9 @@ services:
       - ./api/vendor/bundle:/api/vendor/bundle
     ports:
       - '3001:3001'
+    stdin_open: true
+    tty: true
+
     depends_on:
       - db
   front:
