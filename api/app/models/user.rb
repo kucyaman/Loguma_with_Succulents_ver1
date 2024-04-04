@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   
-  has_many :logs
+  has_many :actions
+  has_many :logs, through: :actions
 end
