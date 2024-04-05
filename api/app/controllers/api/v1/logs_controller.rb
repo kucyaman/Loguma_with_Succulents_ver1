@@ -1,5 +1,10 @@
 class Api::V1::LogsController < ApplicationController
   before_action :authenticate_api_v1_user! 
+
+  def index
+    logs = current_api_v1_user.logs.includes(:action)
+    render json: logs.as_json(include: :action)
+  end
   
   def create
     # actions テーブルに name を保存
