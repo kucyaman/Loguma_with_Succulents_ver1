@@ -1,6 +1,6 @@
 'use client'
 
-import { logAction } from "@/app/log/hooks/logAction";
+import { logAction } from "@/log/hooks/logAction";
 import { useRouter } from "next/navigation";
 
 export default function LogForm() {

@@ -1,8 +1,8 @@
 "use client";
 import Header from '@/components/Layouts/Header';
-import HomeImage from '@/app/home/components/images/homeimage'
-import CreateButton from '@/app/home/components/button/CreateButton';
-import LogIndex from '@/app/home/components/index/logindex';
+import HomeImage from '@/home/components/images/homeimage'
+import CreateButton from '@/home/components/button/CreateButton';
+import LogIndex from '@/home/components/index/logindex';
 import Link from 'next/link'; 
 
 export default function Home() {
