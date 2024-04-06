@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import LogItem from '@/home/components/items/logItem'
 
 export default function LogIndex() {
   const [logs, setLogs] = useState([]);
@@ -12,7 +13,6 @@ export default function LogIndex() {
   useEffect(() => {
     axios.get('http://localhost:3001/api/v1/logs', {
       headers: {
-        'Content-Type': 'application/json',
         'access-token': accessToken,
         'client': client,
         'uid': uid
@@ -25,13 +25,9 @@ export default function LogIndex() {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       {logs.map(log => (
-        <div key={log.id}>
-          <p>Date: {log.date}</p>
-          <p>Action: {log.action.name}</p> {/* actionNameは適宜APIのレスポンスに合わせて変更してください */}
-          <p>Note: {log.note}</p>
-        </div>
+        <LogItem key={log.id} log={log} /> 
       ))}
     </div>
   );
