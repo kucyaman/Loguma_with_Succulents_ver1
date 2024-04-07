@@ -1,8 +1,8 @@
 "use client";
 import { useState } from 'react';
 import Head from 'next/head';
-import SignupForm from '../components/signup/SignupForm'; 
-import SigninForm from '../components/signin/SigninForm'; 
+import SignupForm from '../auth/signup/SignupForm'; 
+import SigninForm from '../auth/signin/SigninForm'; 
 
 export default function Home() {
   const [showModal, setShowModal] = useState<null | "signup" | "signin">(null);
