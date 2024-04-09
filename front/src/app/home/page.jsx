@@ -8,23 +8,23 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="relative">
+    <>
       <div className="fixed top-0 left-0 w-full z-10">
         <Header />
       </div>
       <div className="pt-[120px]">
         <HomeImage />
-        <Link href="/log/new" passHref>
-          <div className="absolute right-0">
-            <CreateButton />
-          </div>
-        </Link>
-        <LogIndex />
-        {/* ここにindexページのその他のコンテンツを追加 */}
       </div>
+      <div className="fixed right-5 bottom-5 z-50">
+        <Link href="/log/new" passHref>
+          <CreateButton />
+        </Link>
+      </div>
+      <LogIndex />
+      {/* ここにindexページのその他のコンテンツを追加 */}
       <div>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
