@@ -25,7 +25,7 @@ export default function LogIndex() {
   }, []);
 
   return (
-    <div className='container'>
+    <div>
       {logs.map(log => (
         <LogItem key={log.id} log={log} /> 
       ))}

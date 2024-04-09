@@ -14,14 +14,14 @@ export default function Home() {
       </div>
       <div className="pt-[120px]">
         <HomeImage />
-        <div className="fixed right-5 bottom-5 z-50">
-          <Link href="/log/new" passHref>
-            <CreateButton />
-          </Link>
-        </div>
-        <LogIndex />
-        {/* ここにindexページのその他のコンテンツを追加 */}
       </div>
+      <div className="fixed right-5 bottom-5 z-50">
+        <Link href="/log/new" passHref>
+          <CreateButton />
+        </Link>
+      </div>
+      <LogIndex />
+      {/* ここにindexページのその他のコンテンツを追加 */}
       <div>
         <Footer />
       </div>
