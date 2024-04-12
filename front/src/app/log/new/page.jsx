@@ -39,7 +39,7 @@ export default function LogForm() {
             />
             <button
               type="submit"
-              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-custom-pink hover:bg-custom-dark-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >投稿
             </button>
           </form>

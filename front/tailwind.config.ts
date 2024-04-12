@@ -9,13 +9,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'custom-pink': '#FF469F', // Custom color added
+        'custom-dark-pink': '#B73162',
+        'custom-right-pink': '#E389BA'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
   plugins: [],
 };
+
 export default config;
