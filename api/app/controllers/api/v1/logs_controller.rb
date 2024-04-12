@@ -2,7 +2,19 @@ class Api::V1::LogsController < ApplicationController
   before_action :authenticate_api_v1_user! 
 
   def index
-    logs = current_api_v1_user.logs.includes(:action).order(date: :desc)
+    year = params[:year]
+    month = params[:month]
+    
+    if year && month
+      start_date = Date.new(year.to_i, month.to_i, 1)
+      end_date = start_date.end_of_month
+      logs = current_api_v1_user.logs.where(date: start_date..end_date)
+    else
+      logs = current_api_v1_user.logs
+    end
+    
+    logs = logs.includes(:action).order(date: :desc)
+    Rails.logger.debug "Sending logs to front-end: #{logs.as_json(include: :action)}"
     render json: logs.as_json(include: :action)
   end
   
@@ -21,6 +33,6 @@ class Api::V1::LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:date, :note, :name)
+    params.require(:log).permit(:date, :note, :name, :year, :month)
   end
 end
