@@ -42,10 +42,38 @@ export default function Header({ selectedContent, setSelectedContent }) {
 
         <nav>
           <ul className="flex justify-center gap-4">
-            <li><button onClick={() => handleContentSelect('diary')}>日記</button></li>
-            <li><button onClick={() => handleContentSelect('careLog')}>お手入れLog</button></li>
-            <li><button onClick={() => handleContentSelect('report')}>レポート</button></li>
-            <li><button onClick={() => handleContentSelect('calendar')}>カレンダー</button></li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('diary')}
+                className={`transition-colors ${selectedContent === 'diary' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                日記
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleContentSelect('careLog')}
+                className={`transition-colors ${selectedContent === 'careLog' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                お手入れLog
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('report')}
+                className={`transition-colors ${selectedContent === 'report' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                レポート
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('calendar')}
+                className={`transition-colors ${selectedContent === 'calendar' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                カレンダー
+              </button>
+            </li>
           </ul>
         </nav>
         
