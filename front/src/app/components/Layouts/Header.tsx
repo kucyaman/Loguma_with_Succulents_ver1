@@ -5,7 +5,10 @@ import useSignout from '../../../hooks/auth/useSignout';
 
 
 
-export default function Header() {
+export default function Header({ selectedContent, setSelectedContent }) {
+  const handleContentSelect = (content) => {
+    setSelectedContent(content);
+  };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const signout = useSignout(); 
 
@@ -39,10 +42,38 @@ export default function Header() {
 
         <nav>
           <ul className="flex justify-center gap-4">
-            <li><Link href="/diary" className="hover:text-blue-500 transition-colors">日記</Link></li>
-            <li><Link href="/care-log" className="hover:text-blue-500 transition-colors">お手入れLog</Link></li>
-            <li><Link href="/report" className="hover:text-blue-500 transition-colors">レポート</Link></li>
-            <li><Link href="/report" className="hover:text-blue-500 transition-colors">カレンダー</Link></li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('diary')}
+                className={`transition-colors ${selectedContent === 'diary' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                日記
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => handleContentSelect('careLog')}
+                className={`transition-colors ${selectedContent === 'careLog' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                お手入れLog
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('report')}
+                className={`transition-colors ${selectedContent === 'report' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                レポート
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleContentSelect('calendar')}
+                className={`transition-colors ${selectedContent === 'calendar' ? 'border-b-2 border-custom-dark-pink' : ''}`}
+              >
+                カレンダー
+              </button>
+            </li>
           </ul>
         </nav>
         
