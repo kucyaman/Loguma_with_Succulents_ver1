@@ -9,7 +9,9 @@ import LogIndex from '@/home/components/index/logIndex';
 import Link from 'next/link'; 
 
 export default function Home() {
-  const currentMonth = new Date().getMonth() + 1; // JavaScriptの月は0から始まるため+1する
+  const [selectedContent, setSelectedContent] = useState('diary');
+
+  const currentMonth = new Date().getMonth() + 1;
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -27,7 +29,7 @@ export default function Home() {
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-10">
-        <Header />
+        <Header selectedContent={selectedContent} setSelectedContent={setSelectedContent} />
       </div>
       <div className='relative'>
         <div className="pt-[120px]">
@@ -44,7 +46,10 @@ export default function Home() {
           <CreateButton />
         </Link>
       </div>
-      <LogIndex selectedMonth={selectedMonth}/>
+        {/* {selectedContent === 'diary' && <DiaryComponent />} */}
+        {selectedContent === 'careLog' && <LogIndex selectedMonth={selectedMonth}/>}
+        {/* {selectedContent === 'report' && <ReportComponent />} */}
+        {/* {selectedContent === 'calendar' && <CalendarComponent />} */}
       {/* その他のコンテンツ */}
       <div>
         <Footer />
