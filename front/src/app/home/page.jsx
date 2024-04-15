@@ -9,7 +9,7 @@ import LogIndex from '@/home/components/index/logIndex';
 import Link from 'next/link'; 
 
 export default function Home() {
-  const [selectedContent, setSelectedContent] = useState('diary');
+  const [selectedContent, setSelectedContent] = useState('careLog');
 
   const currentMonth = new Date().getMonth() + 1;
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
