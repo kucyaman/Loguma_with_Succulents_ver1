@@ -15,7 +15,7 @@ export default function LogIndex({ selectedMonth }) {
     // selectedMonthがnullでない場合にのみAPIリクエストを行う
     if (selectedMonth !== null) {
       const year = new Date().getFullYear(); // 現在の年を取得
-      axios.get('${process.env.NEXT_PUBLIC_API_URL}/api/v1/logs', {
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/logs`, {
         params: { year, month: selectedMonth },
         headers: {
           'access-token': accessToken,
