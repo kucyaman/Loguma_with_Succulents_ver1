@@ -11,7 +11,7 @@ export default function useSignin() {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/auth/sign_in', {
+      const response = await axios.post('${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/sign_in', {
         email,
         password
       });
