@@ -12,7 +12,7 @@ export default function useSignup() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.post('${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth', {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth`, {
         name,
         email,
         password,

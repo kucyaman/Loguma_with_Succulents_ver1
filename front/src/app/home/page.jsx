@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/Layouts/Header';
 import Footer from '@/components/Layouts/Footer';
-import HomeImage from '@/home/components/images/homeimage';
+import HomeImage from '@/home/components/images/homeImage';
 import MonthSelector from '@/home/components/button/MonthSelector';
 import CreateButton from '@/home/components/button/CreateButton';
 import LogIndex from '@/home/components/index/logIndex';

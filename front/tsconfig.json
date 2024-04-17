@@ -1,6 +1,19 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./", // プロジェクトのルートを基準にする
+    "paths": {
+      "@/*": [
+        "src/app/*"
+      ],
+      "@/home/*": [
+        "src/app/home/*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,14 +27,19 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next",
-        "@/*": ["./src/app/*"]
+        "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/app/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/log/new/page.jsx", "src/app/log/hooks/logAction.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/log/new/page.jsx",
+    "src/app/log/hooks/logAction.js"
+, "src/app/components/Layouts/Header.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
