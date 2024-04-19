@@ -12,7 +12,7 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Prepare deployment
         run: |
-          cp loguma_with_succulents/.github/workflow/fly.yml loguma_with_succulents/api/
+          cp loguma_with_succulents/.github/workflows/fly.yml loguma_with_succulents/api/
       - name: Deploy to Fly.io
         run: |
           cd loguma_with_succulents/api
