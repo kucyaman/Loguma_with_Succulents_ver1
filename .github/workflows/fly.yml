@@ -12,10 +12,10 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Prepare deployment
         run: |
-          cp Loguma_with_Succulents/.github/workflows/fly.yml Loguma_with_Succulents/api/
+          cp .github/workflows/fly.yml ./api/
       - name: Deploy to Fly.io
         run: |
-          cd Loguma_with_Succulents/api
+          cd ./api
           flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
