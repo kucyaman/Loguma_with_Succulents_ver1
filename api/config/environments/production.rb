@@ -13,6 +13,7 @@ Rails.application.configure do
   config.eager_load = true
   
   # Host authorization configuration
+  Rails.application.config.hosts << "loguma-with-succulents.fly.dev"
   config.hosts << "loguma-with-succulents.fly.dev"
 
 
