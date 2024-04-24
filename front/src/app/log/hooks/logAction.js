@@ -12,7 +12,7 @@ export async function logAction(formData) {
   const uid = Cookies.get('uid');
 
   try {
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/logs`, {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/logs`, {
       log: {
         date,
         name,
