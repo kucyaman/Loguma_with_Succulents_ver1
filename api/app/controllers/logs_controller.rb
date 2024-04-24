@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_action :authenticate_user! 
+  before_action :set_log, only: [:destroy]
 
   def index
     year = params[:year]
@@ -31,13 +32,22 @@ class LogsController < ApplicationController
   end
 
   def destroy
-    log.destroy!
-
+    if @log.destroy!
+    head :no_content
+    else
+      render json: { errors: @log.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   private
 
   def log_params
     params.require(:log).permit(:date, :note, :name, :year, :month)
+  end
+
+  def set_log
+    @log = current_user.logs.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Log not found' }, status: :not_found
   end
 end
