@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
-export default function CreateButton({ selectedContent }) {
+interface CreateButtonProps {
+  selectedContent: 'diary' | 'careLog' | 'report' | 'calendar';
+}
+
+export default function CreateButton({ selectedContent }: CreateButtonProps) {
   const contentPaths = {
     diary: '/diary/new',
     careLog: '/log/new',
