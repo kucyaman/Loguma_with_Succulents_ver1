@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
-import Header from '@/components/Layouts/header';
-import Footer from '@/components/Layouts/footer';
+import Header from '@/components/layouts/header';
+import Footer from '@/components/layouts/footer';
 import HomeImage from '@/home/components/images/homeImage';
 import MonthSelector from '@/home/components/button/monthSelector';
 import CreateButton from '@/home/components/button/createButton';
@@ -42,9 +42,7 @@ export default function Home() {
       </div>
       <MonthSelector selectedMonth={selectedMonth} onMonthSelect={handleMonthSelect} />
       <div className="fixed right-5 bottom-5 z-50">
-        <Link href="/log/new" passHref>
-          <CreateButton />
-        </Link>
+        <CreateButton selectedContent={selectedContent} />
       </div>
         {/* {selectedContent === 'diary' && <DiaryComponent />} */}
         {selectedContent === 'careLog' && <LogIndex selectedMonth={selectedMonth}/>}
