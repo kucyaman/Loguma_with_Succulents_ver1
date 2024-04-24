@@ -37,8 +37,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/log/new/page.jsx",
-    "src/app/log/hooks/logAction.js"
-, "src/app/components/Layouts/Header.jsx"  ],
+    "src/app/log/hooks/logAction.js", 
+    "src/app/components/Layouts/header.jsx"  ],
   "exclude": [
     "node_modules"
   ]

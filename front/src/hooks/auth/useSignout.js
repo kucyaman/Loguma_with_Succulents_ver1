@@ -19,7 +19,7 @@ export default function useSignout() {
         }
       };
 
-      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/sign_out`, config);
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/auth/sign_out`, config);
 
       Cookies.remove('access-token');
       Cookies.remove('client');

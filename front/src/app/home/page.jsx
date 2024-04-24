@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from 'react';
-import Header from '@/components/Layouts/Header';
-import Footer from '@/components/Layouts/Footer';
+import Header from '@/components/Layouts/header';
+import Footer from '@/components/Layouts/footer';
 import HomeImage from '@/home/components/images/homeImage';
-import MonthSelector from '@/home/components/button/MonthSelector';
-import CreateButton from '@/home/components/button/CreateButton';
+import MonthSelector from '@/home/components/button/monthSelector';
+import CreateButton from '@/home/components/button/createButton';
 import LogIndex from '@/home/components/index/logIndex';
 import Link from 'next/link'; 
 

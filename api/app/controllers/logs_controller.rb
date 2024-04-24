@@ -1,5 +1,6 @@
-class Api::V1::LogsController < ApplicationController
-  before_action :authenticate_api_v1_user! 
+class LogsController < ApplicationController
+  before_action :authenticate_user! 
+  before_action :set_log, only: [:destroy]
 
   def index
     year = params[:year]
@@ -8,9 +9,9 @@ class Api::V1::LogsController < ApplicationController
     if year && month
       start_date = Date.new(year.to_i, month.to_i, 1)
       end_date = start_date.end_of_month
-      logs = current_api_v1_user.logs.where(date: start_date..end_date)
+      logs = current_user.logs.where(date: start_date..end_date)
     else
-      logs = current_api_v1_user.logs
+      logs = current_user.logs
     end
     
     logs = logs.includes(:action).order(date: :desc)
@@ -20,9 +21,9 @@ class Api::V1::LogsController < ApplicationController
   
   def create
     # actions テーブルに name を保存
-    action = current_api_v1_user.actions.create!(log_params.slice(:name))
+    action = current_user.actions.create!(log_params.slice(:name))
     # logs テーブルに date と note を保存
-    log = action.logs.create!(log_params.slice(:date, :note).merge(user_id: current_api_v1_user.id))
+    log = action.logs.create!(log_params.slice(:date, :note).merge(user_id: current_user.id))
     if log.persisted?
       render json: { status: 'success', log: log }, status: :created
     else
@@ -30,9 +31,23 @@ class Api::V1::LogsController < ApplicationController
     end
   end
 
+  def destroy
+    if @log.destroy!
+    head :no_content
+    else
+      render json: { errors: @log.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def log_params
     params.require(:log).permit(:date, :note, :name, :year, :month)
+  end
+
+  def set_log
+    @log = current_user.logs.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Log not found' }, status: :not_found
   end
 end

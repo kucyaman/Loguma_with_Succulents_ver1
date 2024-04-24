@@ -1,4 +1,6 @@
-export default function LogItem({ log }) {
+import { IoTrashBinSharp } from "react-icons/io5";
+
+export default function LogItem({ log, onDelete }) {
   // Date オブジェクトを作成
   const date = new Date(log.date);
   // 日にちだけを抽出
@@ -9,6 +11,9 @@ export default function LogItem({ log }) {
         <p className="flex-1 text-sm md:text-base">{day}</p>
         <p className="flex-1 text-sm md:text-base">{log.action.name}</p>
         <p className="flex-1 text-sm md:text-base">{log.note}</p>
+        <button onClick={() => onDelete(log.id)}>
+          <IoTrashBinSharp />
+        </button>
       </div>
     </div>
   );

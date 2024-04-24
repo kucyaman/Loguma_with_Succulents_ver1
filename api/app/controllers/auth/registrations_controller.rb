@@ -1,4 +1,4 @@
-class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
+class Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
   after_action :set_token_info, only: [:create]
 
   private
