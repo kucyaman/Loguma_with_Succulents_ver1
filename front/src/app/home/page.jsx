@@ -42,9 +42,7 @@ export default function Home() {
       </div>
       <MonthSelector selectedMonth={selectedMonth} onMonthSelect={handleMonthSelect} />
       <div className="fixed right-5 bottom-5 z-50">
-        <Link href="/log/new" passHref>
-          <CreateButton />
-        </Link>
+        <CreateButton selectedContent={selectedContent} />
       </div>
         {/* {selectedContent === 'diary' && <DiaryComponent />} */}
         {selectedContent === 'careLog' && <LogIndex selectedMonth={selectedMonth}/>}
