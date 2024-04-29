@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :sessions, only: %i[index]
   end
   resources :logs
+  resources :reports
 
 end
