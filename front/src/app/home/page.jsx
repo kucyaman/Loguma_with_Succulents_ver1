@@ -1,12 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
-import Header from '@/components/layouts/header';
-import Footer from '@/components/layouts/footer';
+import Header from '@/_layouts/header';
+import Footer from '@/_layouts/footer';
 import HomeImage from '@/home/components/images/homeImage';
 import MonthSelector from '@/home/components/button/monthSelector';
 import CreateButton from '@/home/components/button/createButton';
 import LogIndex from '@/home/components/index/logIndex';
-import Link from 'next/link'; 
 
 export default function Home() {
   const [selectedContent, setSelectedContent] = useState('careLog');
