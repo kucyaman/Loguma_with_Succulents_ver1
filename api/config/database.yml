@@ -16,6 +16,8 @@ test:
 
 production:
   <<: *default
-  database: loguma_succulents
-  username: arcloguma_succulents
+  adapter: postgresql
+  encoding: unicode
+  database: succulents
+  username: succulents_user
   url: <%= ENV['DATABASE_URL'] %>
