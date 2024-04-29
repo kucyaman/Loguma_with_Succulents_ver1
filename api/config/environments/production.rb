@@ -13,7 +13,7 @@ Rails.application.configure do
   config.eager_load = true
   
   # Host authorization configuration
-  config.hosts << "https://loguma-with-succulents.onrender.com"
+  config.hosts << "loguma-with-succulents.onrender.com"
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
